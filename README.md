@@ -1,2 +1,2 @@
 # Blog do código
-> Um blog simples em Node.js
+> Um sistema de blog simples em Node.js e JWT
