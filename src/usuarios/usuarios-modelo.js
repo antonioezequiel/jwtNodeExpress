@@ -9,6 +9,7 @@ class Usuario {
     this.nome = usuario.nome;
     this.email = usuario.email;
     this.emailVerificado = usuario.emailVerificado
+    this.cargo = usuario.cargo;
     this.valida();
   }
 
@@ -30,6 +31,7 @@ class Usuario {
   valida() {
     validacoes.campoStringNaoNulo(this.nome, 'nome');
     validacoes.campoStringNaoNulo(this.email, 'email');
+    validacoes.campoStringNaoNulo(this.cargo, 'cargo');
   }
 
   

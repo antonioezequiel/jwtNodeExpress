@@ -15,7 +15,8 @@ const USUARIOS_SCHEMA = `
     nome VARCHAR(40) NOT NULL,
     email VARCHAR(255) NOT NULL UNIQUE,
     senha VARCHAR(255) NOT NULL,
-    emailVerificado INTEGER default 0
+    emailVerificado INTEGER default 0,
+    cargo VARCHAR(15) check (cargo in ('ADM', 'EDITOR', 'ASSINANTE')) NOT NULL
   )
   `;
 

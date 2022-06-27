@@ -12,4 +12,5 @@ module.exports = app => {
                   usuariosControlador.login);
   app.route('/usuario/verificar_email/:token').get(middlewareAutentication.validarEmail, usuariosControlador.emailVerificacao);
   app.route('/usuario/:id').delete(middlewareAutentication.bearer, usuariosControlador.deleta);
+  
 };

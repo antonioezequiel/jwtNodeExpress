@@ -32,5 +32,26 @@ module.exports = {
         return resolve(resultados);
       });
     });
+  },
+  getById: (id) => {
+    return new Promise((resolve, reject) => {
+      db.all(`SELECT * FROM posts where id = ?`,[id], (erro, resultados) => {
+        if (erro) {
+          return reject('Erro ao listar os posts!');
+        }
+
+        return resolve(resultados);
+      });
+    });
+  },
+  delete: (id) => {
+    return new Promise((resolve, reject) => {
+      db.run(`delete FROM posts where id = ?`, [id], erro => {
+        if (erro) {
+          return reject('Erro ao deletar os posts!');
+        }
+        return resolve();
+      });
+    });
   }
 };

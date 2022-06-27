@@ -13,7 +13,7 @@ function criaTokenJWT(usuario){
    // expiraEm: Date.now() + Number(process.env.TEMPO_TOKEN)
   };
 
-  const token = jwt.sign(payload, process.env.CHAVE_JWT, {expiresIn: '15m'});
+  const token = jwt.sign(payload, process.env.CHAVE_JWT, {expiresIn: '25m'});
   return token;
 }
 
@@ -34,13 +34,15 @@ function criaTokenOpaco(usuario){
 
 module.exports = {
   adiciona: async (req, res) => {
-    const { nome, email, senha } = req.body;
+    const { nome, email, senha, cargo } = req.body;
     try {
       const usuario = new Usuario({
         nome,
         email,
+        cargo,
         emailVerificacao: false
       });
+      
       await usuario.adicionaSenha(senha);
       await usuario.adiciona();
       const endereco = process.env.BASE_URL+'/usuario/verificar_email/' + criaTokenVerificacaoEmail(usuario);

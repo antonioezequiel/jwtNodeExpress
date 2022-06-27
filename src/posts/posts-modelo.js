@@ -23,6 +23,14 @@ class Post {
   static lista() {
     return postsDao.lista();
   }
+
+  static async getById(id) {
+    return await postsDao.getById(id);
+  }
+
+  static async delete(id) {
+    return await postsDao.delete(id);
+  }
 }
 
 module.exports = Post;
